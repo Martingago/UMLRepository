@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-package class diagram">
+  <ClassDiagramComponents>
+    <Class name="DesencriptedWord" package="model.global" visibility="public" xPosition="1586.0" yPosition="766.0">
+      <Fields>
+        <Field name="posicionPalabra" type="int" visibility="private"/>
+        <Field name="palabraEncontrada" type="String" visibility="private"/>
+        <Field name="intentosPalabra" type="long" visibility="private"/>
+        <Field name="fechaEncontrada" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="posicionPalabra"/>
+          <Argument type="String" name="palabraEncontrada"/>
+          <Argument type="long" name="intentosPalabra"/>
+          <Argument type="Date" name="fechaEncontrada"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPosicionPalabra" returnType="int" visibility="public"/>
+        <Method name="setPosicionPalabra" returnType="int" visibility="public">
+          <Argument type="int" name="posicionPalabra"/>
+        </Method>
+        <Method name="getIntentosPalabra" returnType="long" visibility="public"/>
+        <Method name="setIntentosPalabra" returnType="long" visibility="public">
+          <Argument type="long" name="intentosPalabra"/>
+        </Method>
+        <Method name="getFechaEncontrada" returnType="Date" visibility="public"/>
+        <Method name="setFechaEncontrada" returnType="Date" visibility="public">
+          <Argument type="Date" name="fechaEncontrada"/>
+        </Method>
+        <Method name="getPalabraEncontrada" returnType="String" visibility="public"/>
+        <Method name="setPalabraEncontrada" returnType="String" visibility="public">
+          <Argument type="String" name="palabraEncontrada"/>
+        </Method>
+        <Method name="formatoTexto" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GlobalData" package="model.global" visibility="public" xPosition="385.0" yPosition="2020.0">
+      <Fields>
+        <Field name="instance" type="GlobalData" visibility="private" isStatic="true"/>
+        <Field name="numeroPalabrasTotalesGeneradas" type="AtomicLong" visibility="private"/>
+        <Field name="numeroPalabraActualGenerada" type="AtomicLong" visibility="private"/>
+        <Field name="secsTotalActive" type="AtomicLong" visibility="private"/>
+        <Field name="posicionActual" type="int" visibility="private"/>
+        <Field name="working" type="boolean" visibility="private"/>
+        <Field name="tamPalabra" type="int" visibility="private"/>
+        <Field name="ultimaPalabraEncontrada" type="Date" visibility="private"/>
+        <Field name="fechaInicio" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="GlobalData" visibility="public" isStatic="true"/>
+        <Method name="loadData" returnType="GlobalData" visibility="private" isStatic="true"/>
+        <Method name="guardarDatos" returnType="GlobalData" visibility="public" isStatic="true">
+          <Argument type="GlobalData" name="globalData"/>
+        </Method>
+        <Method name="isWorking" returnType="boolean" visibility="public"/>
+        <Method name="setWorking" returnType="boolean" visibility="public">
+          <Argument type="boolean" name="working"/>
+        </Method>
+        <Method name="incrementPalabrasTotalesGeneradas" returnType="long" visibility="public"/>
+        <Method name="getPalabrasTotalesGeneradas" returnType="long" visibility="public"/>
+        <Method name="incrementSecsTotalActive" returnType="long" visibility="public"/>
+        <Method name="getSecsTotalActive" returnType="long" visibility="public"/>
+        <Method name="getPosicionActual" returnType="int" visibility="public"/>
+        <Method name="setPosicionActual" returnType="int" visibility="public">
+          <Argument type="int" name="posicionActual"/>
+        </Method>
+        <Method name="incrementPalabrasActualesGeneradas" returnType="long" visibility="public"/>
+        <Method name="resetNumeroPalabraActualGenerada" returnType="void" visibility="public"/>
+        <Method name="getNumeroPalabraActualGenerada" returnType="long" visibility="public"/>
+        <Method name="setNumeroPalabraActualGenerada" returnType="AtomicLong" visibility="public">
+          <Argument type="AtomicLong" name="numeroPalabraActualGenerada"/>
+        </Method>
+        <Method name="getUltimaPalabraEncontrada" returnType="Date" visibility="public"/>
+        <Method name="setUltimaPalabraEncontrada" returnType="Date" visibility="public">
+          <Argument type="Date" name="ultimaPalabraEncontrada"/>
+        </Method>
+        <Method name="getFechaInicio" returnType="Date" visibility="public"/>
+        <Method name="setFechaInicio" returnType="Date" visibility="public">
+          <Argument type="Date" name="fechaInicio"/>
+        </Method>
+        <Method name="getTamPalabra" returnType="int" visibility="public"/>
+        <Method name="setTamPalabra" returnType="int" visibility="public">
+          <Argument type="int" name="tamPalabra"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ListaPalabrasEncontradas" package="model.global" visibility="public" xPosition="1787.0" yPosition="1566.0">
+      <Fields>
+        <Field name="instance" type="ListaPalabrasEncontradas" visibility="private" isStatic="true"/>
+        <Field name="listPalabrasDesencriptadas" type="ArrayList&lt;DesencriptedWord&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="ListaPalabrasEncontradas" visibility="public" isStatic="true"/>
+        <Method name="loadData" returnType="ListaPalabrasEncontradas" visibility="private" isStatic="true"/>
+        <Method name="guardarDatos" returnType="ListaPalabrasEncontradas" visibility="public" isStatic="true">
+          <Argument type="ListaPalabrasEncontradas" name="lista"/>
+        </Method>
+        <Method name="addPalabraDesencriptada" returnType="DesencriptedWord" visibility="public">
+          <Argument type="DesencriptedWord" name="palabra"/>
+        </Method>
+        <Method name="getListPalabrasDesencriptadas" returnType="ArrayList&lt;DesencriptedWord&gt;" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ControladorBufferBusquedaPalabras" package="model.logic.buffer" visibility="public" xPosition="1205.0" yPosition="1167.0">
+      <Fields>
+        <Field name="palabraBuscar" type="String" visibility="private"/>
+        <Field name="tamañoPalabraBuscar" type="int" visibility="private"/>
+        <Field name="listHilos" type="List&lt;Thread&gt;" visibility="private"/>
+        <Field name="productor" type="ProduceWordThread1" visibility="private"/>
+        <Field name="consumidor" type="ConsumeWordThread1" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="palabraBuscar"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="iniciarBusquedaProcesoPalabra" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BufferProducirYConsumirPalabras" package="model.logic.buffer.productor_consumidor" visibility="public" xPosition="420.0" yPosition="1167.0">
+      <Fields>
+        <Field name="datosGlobales" type="GlobalData" visibility="private"/>
+        <Field name="buffer" type="String[]" visibility="private"/>
+        <Field name="siguiente" type="int" visibility="private"/>
+        <Field name="full" type="boolean" visibility="private"/>
+        <Field name="empty" type="boolean" visibility="private"/>
+        <Field name="found" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="size"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="producirWord" returnType="String" visibility="public" isSynchronized="true">
+          <Argument type="String" name="word"/>
+        </Method>
+        <Method name="consumirWord" returnType="String" visibility="public" isSynchronized="true"/>
+        <Method name="isFound" returnType="boolean" visibility="public"/>
+        <Method name="setFound" returnType="boolean" visibility="public">
+          <Argument type="boolean" name="found"/>
+        </Method>
+        <Method name="getBuffer" returnType="String[]" visibility="public"/>
+        <Method name="getDatosGlobales" returnType="GlobalData" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConsumeWordThread" package="model.logic.buffer.productor_consumidor" visibility="public" xPosition="541.0" yPosition="851.0">
+      <Fields>
+        <Field name="buffer" type="BufferProducirYConsumirPalabras1" visibility="private"/>
+        <Field name="comprobar" type="CompararPalabras2" visibility="private"/>
+        <Field name="palabraDesencriptada" type="DesencriptedWord" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="BufferProducirYConsumirPalabras" name="buffer"/>
+          <Argument type="String" name="palabraBase"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CompararPalabras" package="model.logic.buffer.productor_consumidor.functions" visibility="public" xPosition="715.0" yPosition="544.0">
+      <Fields>
+        <Field name="palabraBase" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="palabraBase"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="validarPalabra" returnType="String" visibility="public">
+          <Argument type="String" name="palabraGenerada"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GenerarPalabrasAleatorias" package="model.logic.buffer.productor_consumidor.functions" visibility="public" xPosition="865.0" yPosition="1758.0">
+      <Fields>
+        <Field name="CARACTERES_PERMITIDOS" type="String" visibility="private" isFinal="true"/>
+        <Field name="random" type="Random" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="generateWord" returnType="int" visibility="public">
+          <Argument type="int" name="tamaño"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProduceWordThread" package="model.logic.buffer.productor_consumidor" visibility="public" xPosition="715.0" yPosition="1497.0">
+      <Fields>
+        <Field name="buffer" type="BufferProducirYConsumirPalabras1" visibility="private"/>
+        <Field name="generate" type="GenerarPalabrasAleatorias2" visibility="private"/>
+        <Field name="tamañoPalabraBuscar" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="BufferProducirYConsumirPalabras" name="buffer"/>
+          <Argument type="int" name="tamañoPalabra"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DirectorAlgoritmoBusquedaPalabras" package="model.main" visibility="public" xPosition="1413.0" yPosition="1945.0">
+      <Fields>
+        <Field name="fichero" type="Fichero_analizar" visibility="private"/>
+        <Field name="manejadorFichero" type="ManejadorCadenaFichero" visibility="private"/>
+        <Field name="arrayPalabras" type="String[]" visibility="private"/>
+        <Field name="posicionFinal" type="int" visibility="private"/>
+        <Field name="data" type="GlobalData" visibility="private"/>
+        <Field name="lista" type="ListaPalabrasEncontradas" visibility="private"/>
+        <Field name="controladorPalabras" type="ControladorBufferBusquedaPalabras" visibility="private"/>
+        <Field name="palabraBuscar" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getData" returnType="GlobalData" visibility="public"/>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="listPalabrasDesencriptadas" source="model.global.ListaPalabrasEncontradas" target="model.global.DesencriptedWord" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;DesencriptedWord&gt;"/>
+    <HasRelation name="instance" source="model.global.ListaPalabrasEncontradas" target="model.global.ListaPalabrasEncontradas" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ListaPalabrasEncontradas"/>
+    <HasRelation name="data" source="model.main.DirectorAlgoritmoBusquedaPalabras" target="model.global.GlobalData" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="controladorPalabras" source="model.main.DirectorAlgoritmoBusquedaPalabras" target="model.logic.buffer.ControladorBufferBusquedaPalabras" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="consumidor" source="model.logic.buffer.ControladorBufferBusquedaPalabras" target="model.logic.buffer.productor_consumidor.ConsumeWordThread" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="model.global.ListaPalabrasEncontradas" target="model.global.ListaPalabrasEncontradas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="generate" source="model.logic.buffer.productor_consumidor.ProduceWordThread" target="model.logic.buffer.productor_consumidor.functions.GenerarPalabrasAleatorias" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="palabraDesencriptada" source="model.logic.buffer.productor_consumidor.ConsumeWordThread" target="model.global.DesencriptedWord" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="buffer" source="model.logic.buffer.productor_consumidor.ConsumeWordThread" target="model.logic.buffer.productor_consumidor.BufferProducirYConsumirPalabras" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="model.main.DirectorAlgoritmoBusquedaPalabras" target="model.global.GlobalData" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instance" source="model.global.GlobalData" target="model.global.GlobalData" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="model.global.ListaPalabrasEncontradas" target="model.global.DesencriptedWord" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="model.global.GlobalData" target="model.global.GlobalData" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="model.logic.buffer.productor_consumidor.BufferProducirYConsumirPalabras" target="model.global.GlobalData" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="buffer" source="model.logic.buffer.productor_consumidor.ProduceWordThread" target="model.logic.buffer.productor_consumidor.BufferProducirYConsumirPalabras" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="productor" source="model.logic.buffer.ControladorBufferBusquedaPalabras" target="model.logic.buffer.productor_consumidor.ProduceWordThread" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="lista" source="model.main.DirectorAlgoritmoBusquedaPalabras" target="model.global.ListaPalabrasEncontradas" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ListaPalabrasEncontradas"/>
+    <HasRelation name="comprobar" source="model.logic.buffer.productor_consumidor.ConsumeWordThread" target="model.logic.buffer.productor_consumidor.functions.CompararPalabras" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="datosGlobales" source="model.logic.buffer.productor_consumidor.BufferProducirYConsumirPalabras" target="model.global.GlobalData" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
